@@ -1,12 +1,17 @@
-# Apollo Android Tutorial
+Technologies
+Usage of Kotlin
+Usage of Coil
+Usuage of GraphQl
+Usuage of couratines
+Cached data
 
-This is the tutorial application for working with the [Apollo Android SDK](https://github.com/apollographql/apollo-android).
+Steps:  
+Clone the project "https://github.com/SharmilaSri/graphql_example.git" and checkout the branch "GithubApp" 
+Sync project files with gradle
+Build - rebuild project
+Generate access token from gitprofile and replace personal access token  Apollo.kt
+Make sure you have internet connection
 
-The tutorial is available through our documentation site: [Android Tutorial](https://www.apollographql.com/docs/android/tutorial/00-introduction/).
 
-For copy errors in the tutorial, please file bugs against the main [`apollo-android` repo](https://github.com/apollographql/apollo-android). For broken code, please file issues on this repo.
 
-This repo has two branches:
 
-* [master](https://github.com/apollographql/apollo-android-tutorial/tree/master) is the final state of the application with all functionality
-* [initial](https://github.com/apollographql/apollo-android-tutorial/tree/initial) is the starter project with the boilerplate and UI code already written but no Apollo-Android code.
