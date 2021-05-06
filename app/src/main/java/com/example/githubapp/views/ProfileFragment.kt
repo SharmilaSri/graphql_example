@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.apollographql.apollo.coroutines.toDeferred
-import com.example.rocketreserver.R
+import com.example.githubapp.R
 import com.example.githubapp.adapters.RepoListAdapter
 import com.example.githubapp.appollo.apolloClient
-import com.example.rocketreserver.databinding.FragmentProfileBinding
+import com.example.githubapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 

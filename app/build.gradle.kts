@@ -10,7 +10,7 @@ android {
     buildToolsVersion("29.0.3")
 
     defaultConfig {
-        applicationId = "com.example.rocketreserver"
+        applicationId = "com.example.githubapp"
         minSdkVersion(23)
         targetSdkVersion(29)
         versionCode = 1

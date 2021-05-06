@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.CircleCropTransformation
-import com.example.rocketreserver.R
-import com.example.rocketreserver.databinding.RepositoryItemBinding
+import com.example.githubapp.R
+import com.example.githubapp.databinding.RepositoryItemBinding
+
 
 class RepoListAdapter(val repos: MutableList<ProfileDetailsQuery.Repositories?>) :
     RecyclerView.Adapter<RepoListAdapter.ViewHolder>() {
