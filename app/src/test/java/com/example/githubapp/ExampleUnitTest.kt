@@ -1,4 +1,4 @@
-package com.example.rocketreserver
+package com.example.githubapp
 
 import org.junit.Test
 
