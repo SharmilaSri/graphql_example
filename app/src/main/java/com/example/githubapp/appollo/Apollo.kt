@@ -1,9 +1,9 @@
-package com.example.rocketreserver
+package com.example.githubapp.appollo
 
 import android.content.Context
-import android.os.Looper
 import com.apollographql.apollo.ApolloClient
-import com.apollographql.apollo.subscription.WebSocketSubscriptionTransport
+import com.apollographql.apollo.cache.normalized.lru.EvictionPolicy
+import com.apollographql.apollo.cache.normalized.lru.LruNormalizedCacheFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -11,21 +11,24 @@ import okhttp3.Response
 private var instance: ApolloClient? = null
 
 fun apolloClient(context: Context): ApolloClient {
-    check(Looper.myLooper() == Looper.getMainLooper()) {
-        "Only the main thread can get the apolloClient instance"
-    }
+
+    val cacheFactory = LruNormalizedCacheFactory(EvictionPolicy.builder().maxSizeBytes(10 * 1024 * 1024).build())
 
     if (instance != null) {
         return instance!!
     }
 
     val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(AuthorizationInterceptor(context))
+        .addInterceptor(
+            AuthorizationInterceptor(
+                context
+            )
+        )
         .build()
 
     instance = ApolloClient.builder()
-        .serverUrl("https://apollo-fullstack-tutorial.herokuapp.com/graphql")
-        .subscriptionTransportFactory(WebSocketSubscriptionTransport.Factory("wss://apollo-fullstack-tutorial.herokuapp.com/graphql", okHttpClient))
+        .serverUrl("https://api.github.com/graphql")
+        .normalizedCache(cacheFactory)
         .okHttpClient(okHttpClient)
         .build()
 
@@ -35,7 +38,7 @@ fun apolloClient(context: Context): ApolloClient {
 private class AuthorizationInterceptor(val context: Context) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
-            .addHeader("Authorization", User.getToken(context) ?: "")
+            .addHeader("Authorization", "Bearer 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")
             .build()
 
         return chain.proceed(request)

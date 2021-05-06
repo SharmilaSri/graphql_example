@@ -1,0 +1,32 @@
+query profileDetails{
+    user(login:"ahmed-shehata") {
+        avatarUrl
+        followers{
+            totalCount
+        }
+
+        following{
+            totalCount
+        }
+
+        email
+        name
+
+        repositories(first: 3) {
+            nodes {
+                name
+                description
+                owner{
+                    avatarUrl
+                    login
+                }
+                stargazerCount
+                primaryLanguage{
+                    name
+                }
+            }
+        }
+
+    }
+
+}
