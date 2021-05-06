@@ -11,6 +11,7 @@ import com.example.githubapp.databinding.RepositoryItemBinding
 
 class RepoListAdapter(val repos: MutableList<ProfileDetailsQuery.Repositories?>) :
     RecyclerView.Adapter<RepoListAdapter.ViewHolder>() {
+    var size:Int=0
 
     class ViewHolder(val binding: RepositoryItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -22,12 +23,12 @@ class RepoListAdapter(val repos: MutableList<ProfileDetailsQuery.Repositories?>)
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return repos[0]?.nodes?.size!!
     }
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val repo = repos.get(0)
+        val repo = repos[0]
         holder.binding.txtViewName.text = repo?.nodes?.get(position)?.owner?.login ?: ""
         holder.binding.txtViewRepoName.text = repo?.nodes?.get(position)?.name ?: ""
         holder.binding.txtViewRepoDescription.text = repo?.nodes?.get(position)?.description ?: ""

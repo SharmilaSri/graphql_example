@@ -13,5 +13,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="view_all"> <u> View All </u>.</string>
-
+    <string name="profile"> Profile</string>
+    <string name="profile_name"> Sian Taylor</string>
+    <string name="short_name"> setaylor</string>
+    <string name="email_text"> <b>s.e.taylor@gamil.com</b></string>
+    <string name="pinned"> Pinned</string>
+    <string name="top"> Top Repositories</string>
+    <string name="starred"> Starred Repositories</string>
 </resources>

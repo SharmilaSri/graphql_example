@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/fab_margin"
+    android:layout_marginStart="@dimen/fab_margin"
     android:background="@drawable/card_background"
     android:padding="@dimen/fab_margin"
     >
@@ -57,8 +58,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_view_star_count"
+        android:drawablePadding="@dimen/drawble_padding"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_view_repo_description"/>
+
 
     <TextView
         android:layout_marginTop="@dimen/fab_margin"
@@ -66,6 +69,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_view_language"
+        android:drawableStart="@drawable/circle_background_language"
+        android:drawablePadding="@dimen/drawble_padding"
         app:layout_constraintTop_toBottomOf="@id/txt_view_repo_description"
         app:layout_constraintEnd_toEndOf="parent"/>
 
