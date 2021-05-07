@@ -11,7 +11,6 @@ import com.example.githubapp.databinding.RepositoryItemBinding
 
 class RepoListAdapter(val repos: MutableList<ProfileDetailsQuery.Repositories?>) :
     RecyclerView.Adapter<RepoListAdapter.ViewHolder>() {
-    var size:Int=0
 
     class ViewHolder(val binding: RepositoryItemBinding) : RecyclerView.ViewHolder(binding.root)
 

@@ -11,6 +11,16 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/fab_margin">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        />
+
     <TextView
         android:textStyle="bold"
         android:layout_marginTop="@dimen/fab_margin"
@@ -20,7 +30,7 @@
         android:id="@+id/txt_view_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress_bar"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
     <ImageView
