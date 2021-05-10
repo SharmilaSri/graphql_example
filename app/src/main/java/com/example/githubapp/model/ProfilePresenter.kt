@@ -1,6 +1,7 @@
 package com.example.githubapp.model
 
 import android.content.Context
+import javax.inject.Inject
 
 class ProfilePresenter (private var mainView: Contract.View?,
                         private val model: Contract.Model) : Contract.Presenter,
