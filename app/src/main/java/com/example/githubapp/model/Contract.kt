@@ -18,12 +18,7 @@ interface Contract {
 
     interface Model {
 
-        interface OnFinishedListener {
-
-            fun onFinished(context: Context)
-        }
-
-        suspend fun fetchData(onFinishedListener: OnFinishedListener?,context: Context) : Response<ProfileDetailsQuery.Data>
+        suspend fun fetchData(context: Context) : Response<ProfileDetailsQuery.Data>
     }
 
     interface Presenter {

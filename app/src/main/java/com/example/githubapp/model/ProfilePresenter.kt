@@ -1,21 +1,15 @@
 package com.example.githubapp.model
 
 import android.content.Context
+import javax.inject.Inject
 
-class ProfilePresenter (private var mainView: Contract.View?,
-                        private val model: Contract.Model) : Contract.Presenter,
-Contract.Model.OnFinishedListener {
-
-    override fun onFinished(context: Context) {
-        if (mainView != null) {
-            mainView!!.hideProgress()
-        }
-    }
+class ProfilePresenter(var mainView: Contract.View?,
+                                            val model: Contract.Model) : Contract.Presenter{
 
     override suspend fun getDataFromNetwork(context: Context) {
         if (mainView != null) {
             mainView!!.showProgress()
-            mainView!!.displayData(model.fetchData(this,context))
+            mainView!!.displayData(model.fetchData(context))
             mainView!!.hideProgress()
         }
     }

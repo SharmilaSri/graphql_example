@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("androidx.navigation.safeargs.kotlin")
     id("com.apollographql.apollo").version("2.2.0")
+    id("kotlin-kapt")
 }
 
 android {
@@ -53,6 +54,9 @@ dependencies {
     testImplementation("junit:junit:4.13")
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+
+    implementation ("com.google.dagger:dagger:2.27")
+    kapt ("com.google.dagger:dagger-compiler:2.27")
 }
 
 apollo {
