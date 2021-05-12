@@ -15,17 +15,14 @@ import com.apollographql.apollo.api.Response
 import com.example.githubapp.R
 import com.example.githubapp.adapters.RepoListAdapter
 import com.example.githubapp.databinding.FragmentProfileBinding
-import com.example.githubapp.model.Contract
-import com.example.githubapp.model.ProfileModel
-import com.example.githubapp.model.ProfilePresenter
-import javax.inject.Inject
+import com.example.githubapp.contract.Contract
+import com.example.githubapp.presenter.ProfilePresenter
 
 
-class ProfileFragment: Fragment() ,Contract.View{
+class ProfileFragment: Fragment() , Contract.View{
 
     private lateinit var binding: FragmentProfileBinding
     lateinit var presenter: Contract.Presenter
-    lateinit var model: Contract.Model
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,8 +30,7 @@ class ProfileFragment: Fragment() ,Contract.View{
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater)
-        model=ProfileModel()
-        presenter = ProfilePresenter(this, model)
+        presenter = ProfilePresenter(this)
         return binding.root
     }
 
@@ -60,23 +56,19 @@ class ProfileFragment: Fragment() ,Contract.View{
         presenter!!.getDataFromNetwork(context)
     }
 
-    override fun displayData(response: Response<ProfileDetailsQuery.Data>) {
+    override fun displayData(array: Response<ProfileDetailsQuery.Data>,list:MutableList<ProfileDetailsQuery.Repositories?>) {
 
-        binding.imageViewProfile.load(response.data?.user?.avatarUrl.toString()){
+        binding.imageViewProfile.load(array.data?.user?.avatarUrl.toString()){
             crossfade(true)
             placeholder(R.drawable.circle_background)
             transformations(CircleCropTransformation())
         }
-        binding.txtViewName.text = response.data?.user?.name
-        binding.txtViewEmail.text = response.data?.user?.email
-        binding.txtViewFollowers.text = "${response.data?.user?.followers?.totalCount.toString()} followers"
-        binding.txtViewFollowing.text = "${response.data?.user?.following?.totalCount.toString()} following"
+        binding.txtViewName.text = array.data?.user?.name
+        binding.txtViewEmail.text = array.data?.user?.email
+        binding.txtViewFollowers.text = "${array.data?.user?.followers?.totalCount.toString()} followers"
+        binding.txtViewFollowing.text = "${array.data?.user?.following?.totalCount.toString()} following"
 
-        val repos = mutableListOf<ProfileDetailsQuery.Repositories?>()
-        val newLaunches = response.data?.user?.repositories
-        repos.add(newLaunches)
-        val adapter = RepoListAdapter(repos)
-
+        val adapter = RepoListAdapter(list)
         binding.recycleViewPinnedItems.layoutManager = LinearLayoutManager(requireContext())
         binding.recycleViewPinnedItems.adapter = adapter
 

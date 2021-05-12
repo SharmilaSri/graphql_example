@@ -1,6 +1,5 @@
-package com.example.githubapp.model
+package com.example.githubapp.contract
 
-import android.app.Activity
 import android.content.Context
 import com.apollographql.apollo.api.Response
 
@@ -13,7 +12,7 @@ interface Contract {
 
         suspend fun getData(context: Context)
 
-        fun displayData(response: Response<ProfileDetailsQuery.Data>)
+        fun displayData(response: Response<ProfileDetailsQuery.Data>,list:MutableList<ProfileDetailsQuery.Repositories?>)
     }
 
     interface Model {

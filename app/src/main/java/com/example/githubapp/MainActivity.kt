@@ -2,14 +2,7 @@ package com.example.githubapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.lifecycleScope
-import com.apollographql.apollo.coroutines.toFlow
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.retry
-import kotlinx.coroutines.flow.retryWhen
-import kotlinx.coroutines.launch
+import com.example.githubapp.R
 
 class MainActivity : AppCompatActivity() {
 
